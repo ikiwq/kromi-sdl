@@ -1,6 +1,6 @@
 # Kromi SDL is a simple 2D engine written in c++ with the SDL library.
 ### In order to run, it requires the SDL2, SDL2_Image, SDL2_ttf and SDL2_Mixer libraries.
-### Here's the list of(some) built in functions:
+### Here's the list of the built in functions:
 
 
 # Scenes
@@ -49,7 +49,7 @@ The Resource Manager has functions that return a *SDL_Texture, *font, *music or 
 The Audio Manager plays music or an SFX.
 
 ### Map
-The Map.h file contains the Map class that has functions to create entities and then assign them tiles. It needs a .txt files with the tile map and a texture in order to do it.
+The Map.h file contains the Map class that has functions to create entities and then assign them tiles. It needs a .txt files with the tile map and a texture in order to do it. The map has a "zero" layer for the base map, then a "first" layer for the details than need to overlap the previous layer and then a "second" layer for collision tiles.
 
 ### Timer
 
