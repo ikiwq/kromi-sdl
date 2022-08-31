@@ -16,7 +16,7 @@ The Scene.h file contains a class that all scenes inherit from. The scene has by
 KromiSDL has an "hybrid" Entity Component System. The ECS.h file contains the EntityManager, Entity and Component classes.
 
 ### Entity Manager
-The Entity Manager manages all the entities and their update/render functions. It can also create entities and delete them based on custom conditions. The Entities are put into different groups to allow Rendering Layer(Ex: the map tiles need to be rendered under the player its self).
+The Entity Manager manages all the entities and their update/render functions. It can also create entities and delete them based on custom conditions. The Entities are put into different groups to allow Rendering Layers(Ex: the map tiles need to be rendered under the player).
 
 ### Entity
 The entity is a "container" for all the components. The entity has functions to add a component to its self or to check if it has a component and a Render and Update loop.
