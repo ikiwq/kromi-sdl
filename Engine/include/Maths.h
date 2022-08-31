@@ -1,6 +1,8 @@
 #pragma once
 #include <math.h>
 
+//This is just a simple Math header to implement some Vectors
+
 struct Vector2 {
 	float x;
 	float y;

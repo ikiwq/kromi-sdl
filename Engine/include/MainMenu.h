@@ -1,7 +1,8 @@
 #pragma once
 #include "Scene.h"
-
 #include "Components.h"
+#include "Collisions.h"
+#include "MenuScript.h"
 
 class MainMenu : public Scene {
 public:
@@ -18,7 +19,7 @@ public:
 		SceneSizeY = Sceney;
 
 		ScriptContainer.addComponent<InputComponent>();
-		ScriptContainer.addComponent<ButtonScript>();
+		ScriptContainer.addComponent<MenuScript>(this);
 		ScriptContainer.AddGroup(zerolayer);
 
 		Background.addComponent<Transform2D>(0, 0);
@@ -30,8 +31,6 @@ public:
 		TitleScreen.addComponent<TextComponent>("KROMI ENGINE", "assets/Fonts/PressStart2P.ttf", 40,
 			SDL_White, true);
 		TitleScreen.AddGroup(firstlayer);
-
-		std::cout << TitleScreen.getComponent<TextComponent>().Pos.w << std::endl;
 		
 		Button1.addComponent<Transform2D>(515, 300);
 		Button1.addComponent<FixedSpriteComponent>(300, 75, 50, 50, 50);
@@ -49,6 +48,9 @@ public:
 		Camera.y = 0;
 		Camera.w = graphics->VideoX;
 		Camera.h = graphics->VideoY;
+
+		//audioManager->PlayMusic("assets/Audio/MainMenu.wav");
+		//audioManager->SetVolumeMusic(5);
 		
 	};
 	~MainMenu() = default;

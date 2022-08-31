@@ -1,6 +1,8 @@
 #include "InputComponent.h"
 #include "SDL.h"
 
+//The input component manages all the inputs.
+
 InputComponent::InputComponent() {
 	CurrentKeyboardState = SDL_GetKeyboardState(&numkeys);
 	PreviousKeyboardState = new Uint8[numkeys];
@@ -66,6 +68,9 @@ bool InputComponent::ButtonRelease(MOUSE_BUTTON button) {
 	return (PreviousMouseState & mask) && !(CurrentMouseState & mask);
 }
 
+Vector2 InputComponent::GetMousePos() {
+	return Vector2(mousex, mousey);
+}
 void InputComponent::UpdateCurrInput() {
 	CurrentKeyboardState = SDL_GetKeyboardState(NULL);
 	CurrentMouseState = SDL_GetMouseState(&mousex, &mousey);

@@ -5,12 +5,9 @@
 #include "InputComponent.h"
 #include "Timer.h"
 
+//This is an example of a custom script that can be attached to an entity.
+
 PlayerScript::PlayerScript() {
-	facingRight = true;
-	isAnimating = false;
-	isStanding = true;
-	isAttacking = false;
-	isRunning = false;
 }
 
 PlayerScript::~PlayerScript() {
@@ -22,6 +19,7 @@ PlayerScript::~PlayerScript() {
 }
 
 bool PlayerScript::Init() {
+	//Here we set the dipendencies
 	if (!owner->hasComponent<Transform2D>()) {
 		std::cout << "Entity must have a Transform2D component!" << std::endl;
 		return false;
@@ -45,12 +43,21 @@ bool PlayerScript::Init() {
 	Input = &owner->getComponent<InputComponent>();
 	Timer = Timer::GetInstance();
 
+	//And we initialize some variables
+	facingRight = true;
+	isAnimating = false;
+	isStanding = true;
+	isAttacking = false;
+	isRunning = false;
+
 	return true;
 }
 
 void PlayerScript::Update() {
+	//here we call the Input update (You can understand better by reading the InputComponent.cpp)
 	Input->UpdateCurrInput();
 
+	//We do stuff if some conditions are true
 	if (Transform->Velocity.x > 0) {
 		facingRight = true;
 		Sprite->flip = SDL_FLIP_NONE;
@@ -97,5 +104,6 @@ void PlayerScript::Update() {
 		Transform->SetVelocity(Transform->Velocity.x -= 200, Transform->Velocity.y);
 	}
 
+	//We update the previous input
 	Input->UpdatePrevInput();
 }

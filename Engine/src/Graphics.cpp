@@ -37,7 +37,7 @@ bool GraphicsManager::isInit() {
 }
 
 bool GraphicsManager::Init() {
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
 		std::cout << "SDL INITAILIZATION ERROR:\n" << SDL_GetError() << std::endl;
 		return false;
 	}
@@ -60,6 +60,7 @@ bool GraphicsManager::Init() {
 }
 
 SDL_Texture* GraphicsManager::GetTexture(const char* filepath) {
+	if (filepath == nullptr) { return nullptr; }
 	SDL_Surface* TextureSurface = IMG_Load(filepath);
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(mRenderer, TextureSurface);
 	SDL_FreeSurface(TextureSurface);

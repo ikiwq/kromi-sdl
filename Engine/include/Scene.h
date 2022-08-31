@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "ResourceManager.h"
+#include "AudioManager.h"
 
 class EntityManager;
 class Map;
@@ -8,10 +9,13 @@ class Map;
 class Scene {
 public:
 	EntityManager* entityManager;
-	SDL_Rect Camera;
 	GraphicsManager* graphics;
 	ResourceManager* resourceManager;
+	AudioManager* audioManager;
+
+	SDL_Rect Camera;
 	SDL_Event Event;
+
 
 	Map* map;
 	int SceneSizeX, SceneSizeY;

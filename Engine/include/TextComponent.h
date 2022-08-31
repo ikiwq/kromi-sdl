@@ -8,7 +8,7 @@ class GraphicsManager;
 
 class TextComponent : public Component {
 public:
-	SDL_Rect Pos;
+	SDL_Rect TextRect;
 	int size;
 	int OffsetX, OffsetY;
 	bool isCentered;

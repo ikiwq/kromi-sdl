@@ -17,7 +17,7 @@ private:
 	unsigned int PhysicsElapsedTicks;
 	float PhysicsdT;
 
-	float ScaleTime;
+	float TimeScale;
 
 public:
 	static Timer* GetInstance();

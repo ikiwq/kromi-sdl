@@ -4,6 +4,9 @@
 #include "Maths.h"
 #include "Timer.h"
 
+//The transform component contains an "absolute" position(that is NOT the rendering position on the screen)
+//It also contains Vectors with various infos
+
 class Transform2D : public Component {
 public:
 	Vector2 Position;
@@ -24,6 +27,8 @@ public:
 	~Transform2D() = default;
 
 	//Setters and Getters
+
+	//Position
 	void SetPosition(Vector2 Pos) {
 		Position.x = Pos.x;
 		Position.y = Pos.y;
@@ -67,6 +72,7 @@ public:
 		return Acceleration;
 	}
 
+	//Scale
 	void SetScale(Vector2 scale) {
 		Scale.x = scale.x;
 		Scale.y = scale.y;
@@ -75,10 +81,12 @@ public:
 		Scale.x = scalex;
 		Scale.y = scaley;
 	}
+
 	Vector2 GetScale() {
 		return Scale;
 	}
 
+	//Rotation
 	void SetRotation(float rot) {
 		rotation = rot;
 	}
@@ -89,7 +97,7 @@ public:
 
 	//Default functions
 	bool Init() override final {
-
+		//Dependencies
 		if (owner->hasComponent<Transform2D>()) {
 			std::cout << "Entity has already got Transform Component!" << std::endl;
 			return false;
@@ -107,11 +115,14 @@ public:
 	}
 
 	void Update() override final {
+		//Gets the delta time for calculations
 		dt = timer->GetPhysicsDt();
 
+		//The scale is calculated by dividing the Window size by the Camera size
 		Scale.x = owner->EntityScene->graphics->VideoX / owner->EntityScene->Camera.w;
 		Scale.y = owner->EntityScene->graphics->VideoY / owner->EntityScene->Camera.h;
 
+		//Calculations for Position
 		Velocity.x += Acceleration.x * dt;
 		Velocity.y += Acceleration.y * dt;
 

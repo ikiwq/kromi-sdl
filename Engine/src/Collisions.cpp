@@ -1,6 +1,8 @@
 #include "Collisions.h"
 #include "BoxCollider.h"
 
+//Collisions.h contains functions to check if 2 rects are colliding using the AABB method
+
 bool Collisions::AxisCollision(const SDL_Rect& rect1, const SDL_Rect& rect2) {
 	if (
 		rect1.x + rect1.w >= rect2.x &&
@@ -14,14 +16,8 @@ bool Collisions::AxisCollision(const SDL_Rect& rect1, const SDL_Rect& rect2) {
 }
 
 bool Collisions::AxisCollision(const BoxCollider& Collider1, BoxCollider& Collider2) {
-	if (Collider1.tag == Collider2.tag) {
-		return false;
-	}
-
 	if (AxisCollision(Collider1.BoxColliderRect, Collider2.BoxColliderRect)) {
-		std::cout << Collider1.tag << "hit" << Collider2.tag << std::endl;
 		return true;
 	}
-
 	return false;
 }

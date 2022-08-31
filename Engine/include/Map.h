@@ -20,9 +20,9 @@ public:
 
 	void LoadMap(const char* TextureFilepath, const char* TxtFilepath, int TileSize, int tilesX, int tilesY);
 
-	void LoadCollisionMap(const char* TextureFilepath, const char* TxtFilepath) {
+	void LoadDetailMap(const char* TextureFilepath, const char* TxtFilepath, int TileSize, int tilesX, int tilesY, int nullTile);
 
-	}
+	void LoadCollisionMap(const char* TextureFilepath, const char* TxtFilepath, int TileSize, int tilesX, int tilesY, int nullTile);
 
 	void SetScene(Scene* scene_);
 

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include "Maths.h"
 #include "SDL.h"
 #include "ECS.h"
 
@@ -14,6 +15,10 @@ class BoxCollider : public Component {
 public:
 	SDL_Rect BoxColliderRect;
 	std::string tag;
+
+	Vector2 LastSafePosition;
+	bool isColliding;
+
 	bool showHitbox;
 private:
 	FixedSpriteComponent* Sprite;
