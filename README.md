@@ -24,7 +24,7 @@ The entity is a "container" for all the components. The entity has functions to 
 ### Components
 The components inherit from the Component class. It has by default a Render and Update virtual functions.
 When an Entity Update() or Render() is called, the Entity will loop through its components and call the update or render for each component.
-####The pre-built components are:
+#### The pre-built components are:
 <ul>
 <li>Transform2D (tracks the scale based on the Camera size)</li>
 <li>Sprite Component (renders and updates an image based on the Transform and Camera position)</li>
