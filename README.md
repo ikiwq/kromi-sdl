@@ -1,4 +1,4 @@
-# Kromi SDL is a simple 2D engine written in c++ with the SDL library.
+# Kromi SDL is 2D engine written in c++ with the SDL library.
 ### In order to run, it requires the SDL2, SDL2_Image, SDL2_ttf and SDL2_Mixer libraries.
 ### Here's the list of the built in functions:
 
