@@ -2,6 +2,8 @@
 
 //The resource manager is intended to optimize resources and time.
 //Ex: an audio or an image is loaded as new every time it needs to.
+//To prevent this, we can simply implement a resource manager that
+//will "save" the already loaded resources and make them avaible.
 
 ResourceManager* ResourceManager::Instance = nullptr;
 
